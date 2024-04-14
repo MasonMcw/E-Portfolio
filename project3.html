@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mason's Portfolio</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/aos.css" rel="stylesheet">
+    <!-- main style -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="status">
+
+            <div class="preloader" aria-busy="true" aria-label="Loading, please wait." role="progressbar">
+            </div>
+
+        </div>
+    </div>
+    <!-- ./Preloader -->
+    
+    <!-- header -->
+    <header class="navbar-fixed-top">
+        <nav>
+            <ul>
+                <li><a href="index.html#projects">Return to Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- ./header -->
+
+    <!-- styles -->
+    <style>
+        .about-img-size{
+            width: 100%; /* Ensure images fill their container */
+            height: auto; /* Maintain aspect ratio */
+        }
+    </style>
+
+    <style>
+        .img-border {
+            border: 2px solid black; /* Adjust the width as needed */
+        }
+    </style>
+
+    <style>
+        .img-border1 {
+            border: 2px solid black; /* Adjust the width as needed */
+            margin-top: 40px;
+        }
+    </style>
+
+    <!-- ./styles -->
+
+    <!-- about -->
+    <div class="section" id="about">
+        <div class="container">
+            <h1 class="size-50">Airline Customer Satisfaction</h1>
+            <br>
+                <p> <h3>Introduction</h3> <br>
+
+                    <p>
+                        This project was developed around a dataset found on kaggle that looks at airline customer satisfaction. Understanding
+                        that customer satisfaction is such a key role in the business world and I have a love for the airline industry this dataset
+                        seemed very relevant to use and study. When looking at the dataset I decided I wanted to create a supervised learning model
+                        which would look at all of the columns and then be able to tell if the customer was left either 'satisfied' or 'neutral or dissatisfied'.
+                        Below I will dicuss how I was able to make this model and some addtional features which I was able to add on for visual purposes.
+                        I have also attached the link to the GitHub page containing both the code for this document and the excel file that was used:
+                    </p>
+                    <br>
+                    <a href="https://github.com/MasonMcw/masonmcwilliams.github.io/tree/Project%233" target="_blank" class="github-icon">
+                        <i class="ion-social-github"></i>
+                        GitHub Link Here
+                    </a>
+                    <br>
+                    <br>
+                    <h4>Code Run Through</h4>
+            <div class="row">
+                <div class="col-md-6 about-img-div" data-aos="fade-up">
+                    <p><br><br>
+                        Starting off the code begins through normal procedures by implementing the requested csv/excel document that was being used.
+                        Then I moved forward to the data cleaning and preprocessing phase. I started off by dropping the NA values within the dataset and
+                        had a feedback bar which said how many rows were deleted and showed the before and after amount of rows. This was to make sure that
+                        there was still a lot of data which could be trained and tested to make a more accurate model. I also dropped both the unanmed id column
+                        as well as the customer review id as these columns have no actual relationship to the overall customer satisfaction. Finally, I encoded
+                        the categorical data so that it could also be used in the analysis assocaiting each one with a number starting at 0 and then adding one per each
+                        unique category value/string.
+                    </p>
+                </div>
+                <div class="col-md-6" data-aos="fade-up"><br><br>
+                    <img src="img/portfolio/Portfolio3/output1.png" width="600" class="img-responsive img-border1" alt="align"="right" data-aos="fade-right" data-aos-delay="0" />
+                </div><br>
+            </div>
+                    <br>
+                    <p>
+                        Then I proceeded to create the machine learning algorithm which would be a random forest classifier. I started off by splitting the data
+                        into both the features (X) and the target variable (Y). Then I used the Standard Scaler function to normalize the data so it would be easier to use
+                        and work better in the model. Then as standard I split the models into the respective training and testing models for X and Y. The next step
+                        was to train the random forest classifier using the training variables previously created. This section I used the standard number of n_estimators
+                        which is 100 and set the random state to 42 which are both the built in standard amounts for this model. 
+                        Finally for the model I made the predictions and then printed the accuracy of
+                        the model which was 0.96 which is really good. This means that on average based on the customer reviews the model would be able to tell whether or not
+                        the customer left satisified, only having an error about 4% of the time. Addtionally I construcuted a clasification report which was able to further
+                        show the strength of my model looking at the precision, recall, and f1 score. Looking at the classifcation report below mainly in the recall, it shows
+                        that my model, although efficient, often predicts more 'neutural or dissatisfied', showing a lower value in satisfied meaning it predicted more false negatives.
+                        Which makes sense inversly why 'neutural or dissatisfied' is 0.97 in recall vs the 0.93 in 'satisfied'.
+                    </p> <br>
+            <div class="row">
+                <div class="col-md-6 about-img-size" data-aos="fade-up">
+                    <img src="img/portfolio/Portfolio3/ClassReport.png" class="img-responsive img-border" alt="SQL Output" />
+                </div>
+                <div class="col-md-12 about-img-div" data-aos="fade-up">
+                    <p> <br>
+                        Finally, I wanted to understand each of the features importance in terms of understanding this supervised learning model. This
+                        part of the code would be very useful for people working in the industry with this data to understand the biggest factors which
+                        go towards whether a customer leaves 'satisfied' or 'neutural or dissatisfied'. This requires first using the features importances function
+                        to discover which features have the most importance and then sorting them in terms of their importance. Next I made a horizontal bar
+                        graph to create a visual which would do an easy job showing the order of importance and adding a visual aspect to their importance in terms
+                        of how big the bar for that feature was. Looking at the graph below we can see that the online boarding, inflight wifi service,and class were
+                        the top three features for importance for this model. While depature delay in minutes, food and drink, and gender seemed to be at the bottom in terms of importance.
+                        This is helpful for airlines to understand what features need to be focused on in terms of improvement, letitng them know what they can change to
+                        create more satisfied customers on their flights.
+                    </p><br>
+                <div class="col-md-6 about-img-size" data-aos="fade-up">
+                    <img src="img/portfolio/Portfolio3/FeatureReport.png" class="img-responsive img-border" alt="SQL Output" />
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        <!-- jQuery -->
+        <script src="js/jquery.js"></script>
+        <!--  plugins  -->
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/aos.js"></script>
+        <script src="js/jquery.form.js"></script>
+        <script src="js/jquery.validate.min.js"></script>
+    
+        <!--  main script  -->
+        <script src="js/custom.js"></script>
+    </body>
+    
+    
+    
+    </html>

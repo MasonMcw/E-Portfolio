@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mason's Portfolio</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/aos.css" rel="stylesheet">
+    <!-- main style -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="status">
+
+            <div class="preloader" aria-busy="true" aria-label="Loading, please wait." role="progressbar">
+            </div>
+
+        </div>
+    </div>
+    <!-- ./Preloader -->
+    
+    <!-- header -->
+    <header class="navbar-fixed-top">
+        <nav>
+            <ul>
+                <li><a href="index.html#projects">Back to Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- ./header -->
+   
+   <style>
+        .center-images {
+    text-align: center; /* Center-align the images */
+    }
+    </style>
+
+
+    <style>
+        .picture_size {
+          width: 500px;
+          height: 300px;
+          left: 90px;
+        }
+      </style>
+
+    <style>
+        .picture_size1 {
+          width: 260px;
+          height: 100px;
+        }
+    </style>
+
+        <style>
+        .picture_size2 {
+          width: 1200px;
+          height: 700px;
+        }
+    </style>
+
+    <!-- Project #1 -->
+    <div class="section" id="about">
+        <div class="container">
+            <div data-aos="fade-up">
+                <h1 class="size-50">Picture Modifcation in Python</h1>
+                <div class="h-50"></div>
+                <a href="https://github.com/MasonMcw/masonmcwilliams.github.io/tree/Project%231" target="_blank" class="github-icon">
+                    <i class="ion-social-github"></i>
+                    Github Link Here
+                </a>
+                <br><br>
+                <h4>Visual Change #1</h4>
+                <p>During my first year at Brock University I learned some basic visual manupilation coding. The first assignment
+                that I will show was a basic code to implement "stars" into a pciture of an eagle infront of a harvest moon. The code was
+                designed to create a random number of small stars which could either be small or large stars. Small stars would be one white
+                pixel, while larger stars were 5 pixels. However, these stars were not supposed to show up on or infront of the tree, moon, or
+                eagle. If the stars were randomly placed their they would be either slightly or fully obsecured depnding on size and palcement.
+                Finally it would produce an output of both of the picture as well as how many small, large, obsecure and total stars were added 
+                to the picture. Addtionally this was made in Thonny application, where I used the libraries known as image, random, distance, and
+                math. Below I have added the original picture, the edited picture, and the output that shows all the stars information. If you
+                want to see the coding of it please click the github link.
+                </p>
+                <div class="section" id="about">
+                    <div class="container">
+                        <div data-aos="fade-up">
+                            <!-- Your content here -->
+                            <div class="center-images">
+                                <!-- Add class "center-images" to the parent container -->
+                                <img class="picture_size" src="img/portfolio/Portfolio1/Original-Picture.jpg">
+                                <img class="picture_size" src="img/portfolio/Portfolio1/Edited-Picture.png" alt="image"/>
+                                <img class="picture_size1" src="img/portfolio/Portfolio1/Output-of-Results.png" alt="image"/>
+                            </div>
+                        </div>
+                    </div>
+                <div class="h-50"></div>
+                <h4>Visual Change #2</h4>
+                <p>Addtionally during this time at Brock University my final assignment was related to visual manipulation and application.
+                    Essentially it was a two step assignment. The first step was to create functions that would allow the user to apply
+                    a filter to a picture of their choosing. For my assignment I decided to choose the filters SepiaTone, Negative, GreyScale,
+                    and an OnlyRed filter. I was able to do this through a loop which would manipulate the individual pixels, based on what 
+                    the filter would want to do. The exact manipulations made in terms of coding can be seen in the github link with their 
+                    respective functions. The next part was to put the images that the user created into a collage so that they could see all 
+                    four of the pictures that were created. This code was designed to ask the user to place the pictures within a frame,
+                    however it would tell the user if there was an error in the case of overlapping of photos. Addtionally it would say
+                    which filter was applied to the pictures in the earlier section. Seen below I have attached pictures of both the original
+                    images of both the bird and the volcano. Additionally I have added a sample of what the collage might have looked like, with
+                    each picture showing which filter was applied.
+                </p>
+                <div class="section" id="about">
+                    <div class="container">
+                        <div data-aos="fade-up">
+                            <!-- Your content here -->
+                            <div class="center-images">
+                                <img class="picture_size" src="img/portfolio/Portfolio1/Volcano.jpg">
+                                <img class="picture_size" src="img/portfolio/Portfolio1/Bird.jpg"/>
+                                <div class="h-50"></div>
+                                <img class="picture_size2" src="img/portfolio/Portfolio1/Final-Collage.jpg">
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <!-- ./about -->
+
+
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <!--  plugins  -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/jquery.form.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+
+    <!--  main script  -->
+    <script src="js/custom.js"></script>
+</body>
+
+
+
+</html>
