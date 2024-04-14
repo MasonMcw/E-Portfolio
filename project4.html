@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mason's Portfolio</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/aos.css" rel="stylesheet">
+    <!-- main style -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="status">
+
+            <div class="preloader" aria-busy="true" aria-label="Loading, please wait." role="progressbar">
+            </div>
+
+        </div>
+    </div>
+    <!-- ./Preloader -->
+    
+    <!-- header -->
+    <header class="navbar-fixed-top">
+        <nav>
+            <ul>
+                <li><a href="index.html#projects">Return to Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- ./header -->
+
+    <!-- styles -->
+    <style>
+        .about-img-size{
+            width: 95%; /* Ensure images fill their container */
+            height: auto; /* Maintain aspect ratio */
+        }
+    </style>
+
+    <style>
+        .img-border {
+            border: 2px solid black; /* Adjust the width as needed */
+        }
+    </style>
+
+    <style>
+        .img-border1 {
+            border: 2px solid black; /* Adjust the width as needed */
+            margin-top: 15px;
+        }
+    </style>
+
+    <!-- ./styles -->
+
+    <!-- about -->
+    <div class="section" id="about">
+        <div class="container">
+            <h1 class="size-50">Cryptocurrencies APIs</h1>
+            <br>
+                <p> <h3>Introduction</h3> <br>
+
+                    <p>
+                        This project was thought of based on my interest on data and cryptocurrencies. This project is focused on working
+                        with the website Coin Market Cap which can be seen in the media section. The whole goal of this project was to create
+                        a code that would be able to first ask the user which cryptocurrencies they would like to know about. Then from there
+                        the data would be converted to a SQL database where the information can be viewed. This project turned out quite well,
+                        other than the input having to be entered in a specific way. The data is entered seamlessly through the whole process and
+                        then ends in the SQL database where further analysis can be conducted. Below I have added both the full python code in a py file,
+                        as well as examples for the potential SQL analysis formulas on a word document into GitHub.
+                    </p>
+                    <br>
+                    <a href="https://github.com/MasonMcw/masonmcwilliams.github.io/tree/Project%234" target="_blank" class="github-icon">
+                        <i class="ion-social-github"></i>
+                        GitHub Link Here
+                    </a>
+                    <br>
+                    <br>
+                    <h4>Code Run Through</h4>
+                    <br>
+                    <p>
+                        Starting off the code starts by asking the user to input which cryptocurrencies they would like to view or analyze. 
+                        The input has to be entered in a specific way in terms of spacing and commas so that the names can then be used to 
+                        get the information from Coin Market Cap online. After the input is added in, it will convert the entire list to all lowercase no matter 
+                        what they enter and add a '-' in between cryptocurrencies that are multiple words. This method is to retrieve the crypto 
+                        through the slug format, which is all lowercase with the '-' in between spaces. Please see below an example of an input for the code:
+                    </p> <br>
+            <div class="row">
+                <div class="col-md-6 about-img-size" data-aos="fade-up">
+                    <img src="img/portfolio/Portfolio4/input.png" class="img-responsive img-border" alt="Code Input" />
+                </div>
+                <div class="col-md-6 about-img-div" data-aos="fade-up">
+                    <p><br><br>
+                        Seen above we can see that a long list of coins was added including Bitcoin, Ethereum, Tether, BNB ,Solana, XRP,
+                        Litecoin, Dogecoin, Toncoin, Cardano, Avalanche, Shiba Inu, Bitcoin Cash, Polkadot, Tron, and finally error coin1.
+                        I purposefully entered 'error coin1' to show the reaction of the code if a coin which is not recognized is entered or
+                        if the input is not done correctly. On the right here the ouput of what is printed to the user is shown. It first states all
+                        of the crypto currencies which the code was not able to access and then continues on to say please check spelling and formatting
+                        to ensure the coin is added into the database. Then it will print out the entire list of cryptocurrencies which have been 
+                        successfully added into the SQL database. The output will complete with stating that the data has been successfully added into the data base.
+                    </p>
+                </div>
+                <div class="col-md-6" data-aos="fade-up"><br><br>
+                    <img src="img/portfolio/Portfolio4/output.png" width="600" class="img-responsive img-border1" alt="align"="right" data-aos="fade-right" data-aos-delay="0" />
+                </div><br>
+            </div>
+                    <br>
+                    <p>
+                        Moving forward to explain the SQL portion of it. The user will have to first create a database in their respective
+                        SQL platform. In this case I have created an SQL database called 'CryptoAnalysis' and I am using Postgre for my server
+                        of choice. The first action will be to drop any existing tables with the potential name 'cryptocurrencies' and to ensure
+                        that the new table only contains relevant and the most recent data requested. Following that it will move to create a 
+                        new table with the name 'cryptocurrencies' with all the related columns in a float format. This is because many of the 
+                        values can be either very large or extremely small making precision hard to achieve in terms of classfiying the values.
+                        Then using the connection it will begin to insert the values that were aquired for each successfully listed cryptocurrency
+                        into the table created. This is also when it will say that the cryptocurrencie has been successfully added as seen above.
+                        Finally, the connection to the database will close or it will produce and error if the connection was unsuccessful.
+                        Please see below the database that was created in SQL Postgre after the code's completion. 
+                    </p> <br>
+            <div class="row">
+                <div class="col-md-6 about-img-size" data-aos="fade-up">
+                    <img src="img/portfolio/Portfolio4/sqloutput.png" class="img-responsive img-border" alt="SQL Output" />
+                </div>
+                <div class="col-md-12 about-img-div" data-aos="fade-up">
+                    <p> <br>
+                        Finally, although this is not the full scale of the table as I could not fit the entire table on one screen, it
+                        shows how it is much easier to view the information now and it is all easily accessible. Addtionally through the
+                        commands that I have suggested and listed in the SQL word document found in the GitHub link users are able to further
+                        analysis the data based on what information they would want to know. Although the commands provided are not the only ways
+                        to manipulate and view the data they are some methods which might be common for the user to use to view the data.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        <!-- jQuery -->
+        <script src="js/jquery.js"></script>
+        <!--  plugins  -->
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/aos.js"></script>
+        <script src="js/jquery.form.js"></script>
+        <script src="js/jquery.validate.min.js"></script>
+    
+        <!--  main script  -->
+        <script src="js/custom.js"></script>
+    </body>
+    
+    
+    
+    </html>

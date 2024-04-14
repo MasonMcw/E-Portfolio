@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mason's Portfolio</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/aos.css" rel="stylesheet">
+    <!-- main style -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="status">
+
+            <div class="preloader" aria-busy="true" aria-label="Loading, please wait." role="progressbar">
+            </div>
+
+        </div>
+    </div>
+    <!-- ./Preloader -->
+    
+    <!-- header -->
+    <header class="navbar-fixed-top">
+        <nav>
+            <ul>
+                <li><a href="index.html#projects">Return to Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- ./header -->
+
+    <!-- styles -->
+    <style>
+        .about-img-size{
+            width: 95%; /* Ensure images fill their container */
+            height: auto; /* Maintain aspect ratio */
+        }
+    </style>
+
+    <style>
+        .img-border {
+            border: 2px solid black; /* Adjust the width as needed */
+        }
+    </style>
+
+    <style>
+        .img-border1 {
+            border: 2px solid black; /* Adjust the width as needed */
+            margin-top: 15px;
+            width: 45%; /* Ensure images fill their container */
+            height: auto; /* Maintain aspect ratio */
+            margin-right: 200px;
+        }
+    </style>
+
+    <!-- ./styles -->
+
+    <!-- about -->
+    <div class="section" id="about">
+        <div class="container">
+            <h1 class="size-50">Car Prices and Specifications</h1>
+            <br>
+                <p> <h3>Introduction</h3> <br>
+
+                    <p>
+                        This project was deveolped through a dataset which can be found on kaggle which lookes at different features related to a car.
+                        This started due to my interest in both car prices and features, especially as someone who is potentially looking to purchase
+                        a car. This project is focused on developing an unsupervised learning model which looks at the relationships between two of the columns.
+                        Being able to find potential relationships within the data especially in relevance to price could be a huge benefit especially when
+                        looking to purchase a car. Below the development of both the code is dicussed further going through the steps requried to make this
+                        unsupervised learning model. Addtionally seen below is the GitHub link having both the code and dataset used for this project:
+                    </p>
+                    <br>
+                    <a href="https://github.com/MasonMcw/masonmcwilliams.github.io/tree/Project%236" target="_blank" class="github-icon">
+                        <i class="ion-social-github"></i>
+                        GitHub Link Here
+                    </a>
+                    <br>
+                    <br>
+                    <h4>Code Run Through</h4>
+            <div class="row">
+                <div class="col-md-6 about-img-div" data-aos="fade-up">
+                    <p><br><br>
+                        Starting off the code begins through normal procedures by implementing the requested csv/excel document that was being used.
+                        Then I moved forward to the data cleaning and preprocessing phase. I started by checking the string based columns in my dataset and
+                        seeing the count of each unique string per column. Understanding that KMeans clustering is more useful for numerical values regardless, I 
+                        decided to remove any of the categorical rows containing values with less than 500 rows. Ensuring that I would have a good amount of data per category.
+                        After that I then removed any NA values which may be seen within the data. Proceeding to print the shape to see the amount of data that has changed
+                        within the dataset. Then I proceeded to encode the categorical values switching them to numerical values so they would work in the model that I have
+                        chosen. Then using the StandardScaler function within python I normalized the data adding the standarized data onto the end of the dataframe with an '_T'.
+                        Then to prevent outliers I made sure to further get rid of more rows, to ensure that all of the data remained with -3 to 3 standard deviations from
+                        the mean. I did this as using cluster means without normalized data heavily changes the finalized look of the visual, not creating an accurate visual representation.
+
+                    </p>
+                </div>
+                <div class="col-md-6" data-aos="fade-up">
+                    <img src="img/portfolio/Portfolio6/Output1.png" class="img-responsive img-border1" alt="Output1" style="float: right;">
+                </div><br>
+            </div>
+                    <br>
+                    <p>
+                        Next understanding that the number of clusters can change based on the data that is being tested or observed, I first developed a
+                        function for optimising the number of clusters used for the kmeans cluster model. I did this creating a function that would develop
+                        a graph to visually show an eblow graph which is efficient in determining the number of clusters that should be used. Developing this
+                        function allows for the user to understand how many clusters to use in the next function for the best working model. The user can pick
+                        this number of clusters by following the curve to the point where it almost bends and then starts to show a consistent decline. In the
+                        example I have provided below it can be seen the the elbow bend appears to start at 3 clusters. This indicates that I should use 3 clusters
+                        when comparing the values that I have entered. I would have made one function but this function allows the user to see the elbow and then determine
+                        how many clusters are required before moving forward to the actual clustering function.
+                    </p> <br>
+            <div class="row">
+                <div class="col-md-6 about-img-size" data-aos="fade-up">
+                    <img src="img/portfolio/Portfolio6/ElbowGraph.png" class="img-responsive img-border" alt="SQL Output" />
+                </div>
+                <div class="col-md-12 about-img-div" data-aos="fade-up">
+                    <p> <br>
+                        Finally, we have the actual model which shows the kmeans clustering model being used. Here I produced a function which requires
+                        the input of the data, the features, and then the number of clusters. Then when the function is activated it will produce a graph
+                        which will show the centroids that were determined which are shown as the red stars on the graph. Then it will have a corresponding
+                        amount of colours to the centroids and will produce and image of the found groupings. In the graph attached below which looks at the features
+                        of selling price and km_driven we can see there are three clusters in both of the bottom corners and top left corner of the graph. This centroids
+                        are able to discover patterns such as maybe grouping the cheap cars with not a lot of km drive, cheaper cars with a lot of miles driven,
+                        and finally more expensive cars with not a lot of km driven. This makes sense as the data contains lots of cars which have had multiple or one previosu owner.
+                        This would mean that it would not really make sense to have both an expensive car with a lot of kilometers on it which can be seen by the lack of a centroid in
+                        the top right portion of the graph. Overall, this machine learning model is helpful in discovering the underlying patterns which can be seen in the data.
+                    </p><br>
+                <div class="col-md-6 about-img-size" data-aos="fade-up">
+                    <img src="img/portfolio/Portfolio6/ClusterGraph.png" class="img-responsive img-border" alt="SQL Output" />
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        <!-- jQuery -->
+        <script src="js/jquery.js"></script>
+        <!--  plugins  -->
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/aos.js"></script>
+        <script src="js/jquery.form.js"></script>
+        <script src="js/jquery.validate.min.js"></script>
+    
+        <!--  main script  -->
+        <script src="js/custom.js"></script>
+    </body>
+    
+    
+    
+    </html>
