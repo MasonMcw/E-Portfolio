@@ -1,2 +1,2 @@
-# Mason McWilliams' Portfolio
-Portfolio showcasing skills relating to data and coding
+# Project #1: Visual Modifications using Python
+Code showing my ability to edit and manipulate images using python in Thonny Application.
